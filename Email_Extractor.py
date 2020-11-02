@@ -1,4 +1,4 @@
-import requests,  kumihotools, re
+import requests
 from lxml import html
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -69,6 +69,7 @@ def parseEmail(web):
     mails=set(mails)
     return mails
 first=0
+#input file below
 with open('andrewsWebs20201028.csv') as f:
     lines=f.read().split('\n')
 
@@ -87,6 +88,7 @@ for line in lines:
             result['emails']=result['emails'] + email +'|'
     df=pd.DataFrame([result])
     print(result)
+    #output file below
     df.to_csv('export2020-10-28.csv',mode='a',index=0,header=(first==0))
     first+=1
 print('-------end----------')
